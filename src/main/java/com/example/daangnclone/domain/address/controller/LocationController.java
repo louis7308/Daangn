@@ -2,6 +2,7 @@ package com.example.daangnclone.domain.address.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import net.minidev.json.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +15,8 @@ import java.net.URLConnection;
 @RestController
 @RequestMapping("/address")
 public class LocationController {
-
+    @Value("${kakao.key}")
+    String REST_KEY;
 
     @GetMapping("/")
     public JSONObject test() {
@@ -29,7 +31,7 @@ public class LocationController {
     /** Controller **/
     public JSONObject loadLocation() {
 
-        String REST_KEY = "b6f6db8acb590c6dd5aac0d9943ea385";
+
         Double lon = 127.423084873712;
         Double lat = 37.0789561558879;
         String url2 = "https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=" + lon + "&y=" + lat;
