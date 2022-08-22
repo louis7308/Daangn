@@ -1,5 +1,6 @@
 package com.example.daangnclone.domain.post;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,10 @@ public class Clipboard {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String content;
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(targetEntity = Post.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "post_id")
     private Post post;
+
+
 }
