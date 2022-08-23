@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.URLEncoder;
 
 @RestController
 @RequestMapping("/address")
@@ -19,7 +21,7 @@ public class LocationController {
     String REST_KEY;
 
     @GetMapping("/")
-    public JSONObject test() {
+    public JSONObject test() throws UnsupportedEncodingException {
         System.out.println("hi");
         return loadLocation();
     }
@@ -29,12 +31,15 @@ public class LocationController {
         return "hi";
     }
     /** Controller **/
-    public JSONObject loadLocation() {
+    public JSONObject loadLocation() throws UnsupportedEncodingException {
 
 
-        Double lon = 127.423084873712;
-        Double lat = 37.0789561558879;
+        Double lon = 127.390594; // 경도
+        Double lat = 36.348315; // 위도
         String url2 = "https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=" + lon + "&y=" + lat;
+        String url3 = "https://dapi.kakao.com/v2/local/search/address.json?query=";
+        String address = URLEncoder.encode("대구광역시", "UTF-8");
+
 
         BufferedReader br = null;
         JSONObject obj = new JSONObject();
