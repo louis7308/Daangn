@@ -6,7 +6,6 @@ import com.example.daangnclone.domain.post.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.Filter;
 import java.util.ArrayList;
 import java.util.List;
 

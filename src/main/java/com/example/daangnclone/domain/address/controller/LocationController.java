@@ -34,8 +34,8 @@ public class LocationController {
     public JSONObject loadLocation() throws UnsupportedEncodingException {
 
 
-        Double lon = 127.390594; // 경도
-        Double lat = 36.348315; // 위도
+        Double lon = 126.8639; // 경도
+        Double lat = 35.215; // 위도
         String url2 = "https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=" + lon + "&y=" + lat;
         String url3 = "https://dapi.kakao.com/v2/local/search/address.json?query=";
         String address = URLEncoder.encode("대구광역시", "UTF-8");
